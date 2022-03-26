@@ -1,0 +1,31 @@
+
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <div class="container">
+            <a href="{% url 'home'%}" class="navbar-brand">E-Learning</a>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a href="{% url 'home'%}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{%url 'blogs'%}" class="nav-link">Courses</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Welcome,{{user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
